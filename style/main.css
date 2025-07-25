@@ -12,13 +12,15 @@ body {
 }
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   text-align: center;
   visibility: hidden;
   width: 100vw;
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .container > div {
@@ -64,9 +66,10 @@ body {
   border-radius: 3px;
   bottom: -50px;
   color: #fff;
-  padding: .5rem 1rem;
+  padding: .5rem 1.2rem;
   position: absolute;
   right: 5px;
+  font-size: 1.2rem;
 }
 
 .five p {
@@ -94,7 +97,6 @@ body {
   font-size: 15rem;
 }
 
-
 .six {
   position: relative;
   top: 10vh;
@@ -105,13 +107,11 @@ body {
   display: inline-block;
   height: 350px;
   max-width: 100%;
-  /* height: auto; */
 }
 
 .six .hat {
   left: 41.5%;
   position: absolute;
-  /* transform: scale(0.1); */
   top: -35%;
   width: 80px;
 }
@@ -225,7 +225,6 @@ body {
   z-index: 3;
 }
 
-/* Media Queries */
 @media screen and (max-height: 1000px) {
   .six .hat {
     left: 40%;
@@ -273,7 +272,6 @@ body {
   }
 
   .six .hat {
-    /* top: -20px; */
     width: 50px;
   }
 
@@ -288,5 +286,10 @@ body {
   .nine p {
     font-size: 1.5rem;
     font-weight: lighter;
+  }
+
+  .baloons img,
+  .eight svg {
+    display: none;
   }
 }
