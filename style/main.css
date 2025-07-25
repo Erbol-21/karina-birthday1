@@ -5,105 +5,144 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle, #ffe5f0, #ffe6fa, #fff);
-  overflow-x: hidden;
-  min-height: 100vh;
-  position: relative;
-  text-align: center;
+  background: linear-gradient(to top, #ffd1dc, #ffe6f7);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 }
 
-.container {
-  padding: 40px 20px;
+.card {
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
   z-index: 2;
   position: relative;
 }
 
-.title {
-  font-size: 2.5rem;
-  color: #ff3e7f;
-  margin-bottom: 10px;
-  animation: fadeIn 2s ease-out forwards;
+h1.glow-text {
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 30px;
-  animation: fadeIn 3s ease-out forwards;
-}
-
-.card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 500px;
-  margin: 0 auto 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  animation: fadeIn 4s ease-out forwards;
-}
-
-.card p {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  color: #444;
+.message, .wish {
+  font-size: 1.5em;
+  margin-top: 20px;
+  color: #fff0f5;
+  text-shadow: 0 0 5px #ff69b4;
 }
 
 button {
+  margin-top: 30px;
   padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #ff3e7f;
-  color: white;
+  font-size: 1.2em;
   border: none;
-  border-radius: 8px;
+  background: #ff69b4;
+  color: white;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  box-shadow: 0 0 10px #ff69b4;
+  transition: 0.3s ease;
 }
-
 button:hover {
-  background-color: #e02f6d;
+  background: #ff1493;
 }
 
-#wish {
-  margin-top: 20px;
-  font-size: 1.3rem;
-  color: #ff0080;
-  font-weight: bold;
-  animation: fadeIn 1s ease-out forwards;
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-.hidden {
-  display: none;
+.hearts::before,
+.hearts::after {
+  content: "💖";
+  font-size: 3rem;
+  position: absolute;
+  top: -10%;
+  animation: float 6s infinite ease-in;
 }
 
-.glow {
-  text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff66b2;
+.hearts::before {
+  left: 20%;
+  animation-delay: 1s;
 }
 
-.background::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('https://cdn.pixabay.com/photo/2016/11/23/14/45/pink-1853602_1280.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px) brightness(0.7);
-  z-index: 0;
+.hearts::after {
+  left: 70%;
+  animation-delay: 2s;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.confetti::before,
+.confetti::after {
+  content: "✨";
+  font-size: 2rem;
+  position: absolute;
+  top: -5%;
+  animation: fall 8s infinite linear;
 }
 
-@media (max-width: 600px) {
-  .title {
-    font-size: 1.8rem;
+.confetti::before {
+  left: 10%;
+}
+
+.confetti::after {
+  left: 80%;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff69b4, 0 0 15px #ff69b4;
   }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 40px #ff1493;
+  }
+}
 
-  .subtitle, .card p, #wish {
-    font-size: 1rem;
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-5vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+}
+
+.balloons {
+  position: absolute;
+  bottom: -100px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url('balloon.svg');
+  background-size: contain;
+  background-repeat: repeat-x;
+  animation: rise 15s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes rise {
+  0% {
+    background-position-y: 100vh;
+  }
+  100% {
+    background-position-y: -200vh;
   }
 }
