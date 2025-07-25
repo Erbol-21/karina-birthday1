@@ -53,6 +53,7 @@ body {
 .six {
   margin-top: 30px;
   text-align: center;
+  position: relative; /* Добавлено для позиционирования шапки */
 }
 
 .six img {
@@ -63,7 +64,7 @@ body {
 
 .six .hat {
   position: absolute;
-  top: 5px;
+  top: -50px; /* Сдвинута вверх, чтобы не закрывала голову */
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
@@ -86,8 +87,8 @@ body {
   }
 
   .six .hat {
+    top: -40px; /* Немного ниже, чтобы хорошо смотрелась на телефоне */
     width: 40px;
-    top: 0;
   }
 
   .nine p {
